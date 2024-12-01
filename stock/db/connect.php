@@ -9,7 +9,7 @@ if(!$conn)
    die ("not connected to the databse");
 }
 else{
-   echo "connect'successfullll";
+   echo "connect'successfullllyy";
 }
 
 ?>
