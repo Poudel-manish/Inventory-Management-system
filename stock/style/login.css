@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url(back\ .jpg) no-repeat center center/cover;
+}
+
+.login-container {
+    background-color: rgba(255,255,255,0.8);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 400px;
+    transition:all 0.5s ease;
+}
+
+.login-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+.whole{
+    height:100%;
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+}
+#header{
+    
+position: absolute;
+    top: 20px;
+    left: 20px;
+    text-align: left;
+}
+#header h1{
+    font-size: 48px;
+    transition: color 0.3s ease;
+    color:teal;
+}
+#header p{
+    font-size: 18px;
+    transition:color 0.3s ease ;
+    color:teal;
+}
+a{
+    text-decoration: none;
+}
+#logo-link:hover h1,
+#logo-link:hover p {
+    
+    cursor: pointer;
+}
+.login-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.5);
+}
+.password-group {
+    position: relative;
+}
+
+.password-group input {
+    width: 100%;
+    padding-right: 40px;
+    
+}
+
+.password-group i {
+    position: absolute;
+    right: 10px;
+    top: 70%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #999;
+}
+
+.password-group i:hover {
+    color: #333;
+}
+@media (max-width: 600px) {
+    .login-container {
+        padding: 15px;
+    }
+
+    .login-form h2 {
+        font-size: 24px;
+    }
+
+    button {
+        padding: 12px;
+    }
+}
