@@ -4,7 +4,7 @@ require($_SERVER['DOCUMENT_ROOT'] . "/stock/db/database.php");
 
 
 if (isset($_POST['submit'])) {
-    // Database insert
+    // Database insertttt
     $productname = $_POST['productname'];
     $productid = $_POST['productid'];
     $SKU = $_POST['SKU'];
