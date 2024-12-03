@@ -64,7 +64,7 @@ include 'sells.php';
 ?>
     
    
-  
+  <p>hi</p>
 
   <!-- JavaScript file -->
   <script src="frontend.js"></script>
