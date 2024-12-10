@@ -27,7 +27,7 @@ body {
 }
 
 /* Form Container */
-#addProduct {
+#sells {
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
@@ -49,7 +49,7 @@ body {
 }
 
 /* Decorative Elements */
-#addProduct::before {
+#sells::before {
     content: '';
     position: absolute;
     top: -30px;
@@ -62,7 +62,7 @@ body {
 }
 
 /* Heading */
-#addProduct h1 {
+#sells h1 {
     text-align: center;
     color: #2c3e50;
     margin-bottom: 25px;
@@ -72,15 +72,15 @@ body {
 }
 
 /* Form Elements */
-#addProduct label {
+#sells label {
     display: block;
     margin-top: 10px;
     font-weight: bold;
     color: #34495e;
 }
 
-#addProduct input, 
-#addProduct select {
+#sells input, 
+#sells select {
     width: 100%;
     padding: 10px;
     margin-top: 5px;
@@ -92,8 +92,8 @@ body {
     background-color: #f9fafc;
 }
 
-#addProduct input:focus, 
-#addProduct select:focus {
+#sells input:focus, 
+#sells select:focus {
     outline: none;
     border-color: var(--primary-color);
     box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
@@ -102,7 +102,7 @@ body {
 /* Submit Button */
 input[type="submit"] {
     background-color: var(--primary-color);
-    color: black; /* Changed to black as requested */
+    color: black;
     border: none;
     padding: 12px 20px;
     border-radius: 4px;
@@ -120,21 +120,33 @@ input[type="submit"]:hover {
     transform: scale(1.02);
 }
 
+/* Date and Select Inputs */
+input[type="date"], 
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%233498db' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    background-repeat: no-repeat;
+    background-position-x: 98%;
+    background-position-y: center;
+}
+
 /* Responsive Design */
 @media screen and (max-width: 600px) {
-    #addProduct {
+    #sells {
         padding: 20px;
         margin: 0 10px;
     }
 
-    #addProduct input, 
-    #addProduct select {
+    #sells input, 
+    #sells select {
         font-size: 14px;
         padding: 8px;
     }
 
-    #addProduct h1 {
-        font-size: 1.5em;
+    input[type="submit"] {
+        padding: 10px 15px;
+        font-size: 14px;
     }
 }
 

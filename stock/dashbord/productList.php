@@ -35,7 +35,7 @@
             </thead>
             <tbody>
                 <?php
-                require($_SERVER['DOCUMENT_ROOT'] . "/stock/db/database.php");
+                require($_SERVER['DOCUMENT_ROOT'] . "../db/database");
                 $sql = "SELECT * FROM `crud`";
                 $result = mysqli_query($conn, $sql);
 
