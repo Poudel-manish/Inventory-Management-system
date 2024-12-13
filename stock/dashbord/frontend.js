@@ -11,3 +11,5 @@ function showSection(sectionId) {
     alert("Logging out...");
     // You can redirect or clear session data here
   }
+
+
