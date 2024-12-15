@@ -12,5 +12,6 @@
       <h1>Dashboard</h1>
       <p>Welcome to the Dashboard</p>
     </div>
+    </div>
 </body>
 </html>

@@ -1,6 +1,7 @@
 <?php
 // Connect to the database
-require($_SERVER['DOCUMENT_ROOT'] . "/stock/db/database.php");
+// require($_SERVER['DOCUMENT_ROOT'] . "./stock/db/database.php");
+include '../db/database.php';
 
 
 if (isset($_POST['submit'])) {
@@ -21,6 +22,9 @@ if (isset($_POST['submit'])) {
     // Execute query and check for success
     if (mysqli_query($conn, $sql)) {
         echo "Product added successfully.";
+        header("Location: productList.php");
+        exit; // Always use `exit` after a redirect to stop script execution.
+
     } else {
         die("Error inserting data: " . mysqli_error($conn));
     }

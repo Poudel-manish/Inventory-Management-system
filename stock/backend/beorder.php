@@ -1,14 +1,14 @@
 
 <?php
-require( "/stock/db/connect.php");
+require( "../db/connect.php");
 $sql = "SELECT * FROM `order`";
 $result = mysqli_query($conn, $sql);
 
-if ($result) {
-    echo "Connection successful and query executed.";
-} else {
-    echo "Error: " . mysqli_error($conn);
-}
+// if ($result) {
+//     echo "Connection successful and query executed.";
+// } else {
+//     echo "Error: " . mysqli_error($conn);
+// }
 
 
 
@@ -31,7 +31,7 @@ VALUES ('$SN', '$ordernum', '$orderdate', '$descriptions', '$quantity', '$quoted
 
     // Execute query and check for success
     if(mysqli_query($conn, $sql)) {
-        echo "Product added successfully.";
+        echo "added sucess ";
     } else {
         die("Error inserting data: " . mysqli_error($conn));
     }

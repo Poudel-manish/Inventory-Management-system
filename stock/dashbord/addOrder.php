@@ -1,4 +1,6 @@
-
+<?php
+include '../backend/beorder.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

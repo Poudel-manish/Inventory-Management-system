@@ -1,5 +1,5 @@
 <?php
-
+include '../backend/backend.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,15 +43,10 @@
           <option value="Category e">Motors</option>
           <option value="Category f">Home & Lifestyle </option>
         </select>
-
-        <label for="manufactureDate">Manufacture Date:</label>
+       <label for="manufactureDate">Manufacture Date:</label>
         <input type="date" id="manufactureDate" name="manufactureDate" />
-
         <label for="expiryDate">Expiry Date:</label>
         <input type="date" id="expiryDate" name="expiryDate" />
-        
-
-
         <input type="submit" name="submit" value="Add Product" />
 
         
