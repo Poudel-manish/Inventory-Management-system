@@ -1,61 +1,72 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    include 'connect.php';
-    $fullname = $_POST['fullname'];
-    $password = $_POST['password'];
+  // include 'connect.php';
+  include '../db/connect.php';
+  $fullname = $_POST['fullname'];
+  $email = $_POST['email'];
+  $phoneNumber = $_POST['phoneNumber'];
+  $password = $_POST['password'];
+  $cpassword = $_POST['cpassword'];
+  if ($password !== $cpassword) {
+    die("Passwords do not match.");
+  }
+  $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    $sql="insert into `user` where fullname='$fullname'";
+  $sql = "insert into `user` where fullname='$fullname'";
 
-    // Use the correct variable name and handle errors properly
-    $sqli= "INSERT INTO `user` (fullname, password) VALUES ('$fullname', '$password')";
-    $result = mysqli_query($conn, $sqli);
+  $sqli = "INSERT INTO `user` (fullname, email, phoneNumber, password, cpassword) 
+         VALUES ('$fullname', '$email', '$phoneNumber', '$password', '$cpassword')";
 
-    if ($result) {
-        echo "Data was inserted";
-    } else {
-        die(mysqli_error($conn));
-    }
+
+  if ($result) {
+    echo "Data was inserted";
+  } else {
+    die(mysqli_error($conn));
+  }
 }
 ?>
 
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Form</title>
-    <link rel="stylesheet" href="registration.css">
-</head>
-<body>
 
-<section class="vh-100">
-  <div class="container h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-        <div class="card" style="border-radius: 15px;">
-          <div class="card-body p-5">
-            <h2 class="text-uppercase text-center mb-5">Create an account</h2>
-            <form action="registration.php" method="post">
-              <div class="form-outline mb-4">
-                <input type="text" id="name" class="form-control form-control-lg" name="fullname" placeholder="Enter your User Name" />
-              </div>
-        
-              <div class="form-outline mb-4">
-                <input type="password" id="password" class="form-control form-control-lg" name="password" placeholder="Password" />
-              </div>
-             
- 
-              <div class="d-flex justify-content-center">
-                <button type="submit" class="btn btn-success btn-lg gradient-custom-4 text-body">Register</button>
-              </div>
-              <p class="text-center text-muted mt-4 mb-0">Already have an account? <a href="login.php" class="text-body"><u>Login here</u></a></p>
-            </form>
-          </div>
-        </div>
-      </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up Page</title>
+  <link rel="stylesheet" href="reg.css">
+  <!-- Add Font Awesome for icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="signup-box">
+    <h2>Sign Up</h2>
+    <div class="input-container">
+      <i class="fas fa-user"></i>
+      <input type="text" placeholder="Full Name" required>
+    </div>
+    <div class="input-container">
+      <i class="fas fa-envelope"></i>
+      <input type="email" placeholder="Email Address" required>
+    </div>
+    <div class="input-container">
+      <i class="fas fa-phone"></i>
+      <input type="tel" placeholder="Phone Number" required>
+    </div>
+    <div class="input-container">
+      <i class="fas fa-lock"></i>
+      <input type="password" placeholder="Password" required>
+    </div>
+    <div class="input-container">
+      <i class="fas fa-lock"></i>
+      <input type="password" placeholder="Confirm Password" required>
+    </div>
+    <button class="signup-button">Sign Up</button>
+    <div class="login-link">
+      Already have an account? <a href="login.php">Log In</a>
     </div>
   </div>
-</section>
 </body>
+
 </html>

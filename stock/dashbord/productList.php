@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/product.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
     <title>Product List</title>
 
@@ -16,7 +17,8 @@
     <!-- Product List Section -->
     <div id="productList" class="content-section">
         <h1>Product List</h1>
-        <a href="addProduct.php" type="button">Update</a>
+        <a href="addProduct.php" type="button"><i class="fa-regular fa-plus"></i>
+            Create New</a>
         <div class="search">
             <input type="search" placeholder=" Search" onkeyup="myFun()" id="search">
 

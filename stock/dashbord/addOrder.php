@@ -3,19 +3,22 @@ include '../backend/beorder.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/addOrder.css">
     <title>add order</title>
 </head>
+
 <body>
-        <!-- Form to add a new order -->
+    <!-- Form to add a new order -->
     <form method="post" action="addorder.php">
         <div id="add_order" class="content-section">
             <h1>Add Order</h1>
-            <label for="SN">SN:</label>
-            <input type="text" id="SN" name="SN" required />
+               
+            <label for="suppliers">suppliers:</label>
+            <input type="text" id="suppliers" name="suppliers" required />
 
             <label for="ordernum">Order Number:</label>
             <input type="text" id="ordernum" name="ordernum" required />
@@ -36,6 +39,8 @@ include '../backend/beorder.php';
         </div>
     </form>
 </body>
+
 </html>
 </body>
+
 </html>

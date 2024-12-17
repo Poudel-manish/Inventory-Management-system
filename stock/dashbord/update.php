@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if ($result) {
     echo "<script> alert('Update successful!'); </script>";
     header("Location: product.php");
-    // exit();
+    exit();
   } else {
     die("Error updating record: " . mysqli_error($conn));
   }
@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="addproduct.css" />
+  <link rel="stylesheet" href="../style/addproduct.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>Add Product</title>
 </head>
@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
  
   <form method="post" action="">
     <div id="addProduct" class="content-section">
-      <h1>Add Product</h1>
+      <h1>Update Product</h1>
       <label for="productname">Product Name:</label>
       <input type="text" id="productName" name="productname" />
 

@@ -1,0 +1,14 @@
+.order-button {
+  background-color: #615f58; /* Amber for Pending */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.order-button.received {
+  background-color: #28A745; /* Green for Received */
+}
