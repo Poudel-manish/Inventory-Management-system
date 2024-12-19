@@ -1,12 +1,11 @@
 <?php
-// Connect to the database
-// require($_SERVER['DOCUMENT_ROOT'] . "./stock/db/database.php");
+
 include '../db/database.php';
 
 
 if (isset($_POST['submit'])) {
     // Database insertttt
-    $productname = $_POST['productname'];
+    $productname = $_POST ['productname'];
     $productid = $_POST['productid'];
     $SKU = $_POST['SKU'];
     $quantity = $_POST['quantity'];
@@ -16,8 +15,8 @@ if (isset($_POST['submit'])) {
     $expiryDate = $_POST['expiryDate'];
 
     // Updated SQL query to match database column names
-    $sql = "INSERT INTO `crud`(productname, productid, SKU, quantity, productPrice, category, manufactureDate, expiryDate)
-            VALUES ('$productname', '$productid', '$SKU', '$quantity', '$productPrice', '$category', '$manufactureDate', '$expiryDate')";
+    $sql = "INSERT INTO `productlist`(cid, productname, productid, SKU, quantity, productPrice, category, manufactureDate, expiryDate)
+            VALUES ('$cid', '$productname', '$productid', '$SKU', '$quantity', '$productPrice', '$category', '$manufactureDate', '$expiryDate')";
 
     // Execute query and check for success
     if (mysqli_query($conn, $sql)) {
@@ -27,6 +26,6 @@ if (isset($_POST['submit'])) {
 
     } else {
         die("Error inserting data: " . mysqli_error($conn));
-    }
+}
 }
 ?>

@@ -45,11 +45,13 @@
                 <?php
                 // require($_SERVER['DOCUMENT_ROOT'] . "../db/database");
                 include '../db/database.php';
-                $sql = "SELECT * FROM `crud`";
+                $sql = "SELECT * FROM `productlist`";
                 $result = mysqli_query($conn, $sql);
 
                 if ($result) {
-                    while ($row = mysqli_fetch_assoc($result)) {
+                    while ($row = mysqli_fetch_assoc($result))
+                     {
+                        $cid = $row['cid'];
                         $productname = $row['productname'];
                         $productid = $row['productid'];
                         $SKU = $row['SKU'];
@@ -60,6 +62,7 @@
                         $expiryDate = $row['expiryDate'];
 
                         echo '<tr>
+                                <td>' . $cid . '</td>
                                 <td>' . $productname . '</td>
                                 <td>' . $productid . '</td>
                                 <td>' . $SKU . '</td>

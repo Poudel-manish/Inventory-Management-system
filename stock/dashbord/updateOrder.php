@@ -48,8 +48,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <form method="post" action="">
         <div id="addProduct" class="content-section">
             <h1>Update Order</h1>
+            <label for="orderid">Order ID:</label>
+            <input type="text" id="orderid" name="orderid" />
+
+            <label for="cid">cid:</label>
+            <input type="text" id="cid" name="suppliers" />
+
             <label for="suppliers">suppliers:</label>
-            <input type="text" id="suppliers" name="suppliers"  />
+            <input type="text" id="suppliers" name="suppliers" />
 
             <label for="ordernum">Order Number:</label>
             <input type="text" id="ordernum" name="ordernum" />
@@ -58,10 +64,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <input type="date" name="orderdate" />
 
             <label for="description">Description:</label>
-            <input type="text" id="descriptions" name="descriptions"/>
+            <input type="text" id="descriptions" name="descriptions" />
 
             <label for="quantity">Quantity:</label>
-            <input type="number" id="quantity" name="quantity"/>
+            <input type="number" id="quantity" name="quantity" />
 
             <label for="quotedprice">Quoted Price:</label>
             <input type="text" id="quotedprice" name="quotedprice" />

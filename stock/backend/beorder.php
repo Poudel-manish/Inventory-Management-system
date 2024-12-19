@@ -9,7 +9,8 @@ $result = mysqli_query($conn, $sql);
 
 if (isset($_POST['Add'])) {
     // Database insert
-    $SN = $_POST['SN'];
+    $orderid= $_POST['orderid'];
+    $cid= $_POST['cid'];
     $suppliers =$_POST['suppliers'];
     $ordernum = $_POST['ordernum'];
     $orderdate = $_POST['orderdate'];
@@ -19,8 +20,8 @@ if (isset($_POST['Add'])) {
  
 
     // Updated SQL query to match database column names
-    $sql= "INSERT INTO `order` (SN,suppliers, ordernum, orderdate, descriptions, quantity, quotedprice)
-VALUES ('$SN','$suppliers' ,'$ordernum', '$orderdate', '$descriptions', '$quantity', '$quotedprice')";
+    $sql= "INSERT INTO `order` (orderid,cid,suppliers, ordernum, orderdate, descriptions, quantity, quotedprice)
+VALUES ('$orderid','$cid','$suppliers' ,'$ordernum', '$orderdate', '$descriptions', '$quantity', '$quotedprice')";
 
 
     // Execute query and check for success
