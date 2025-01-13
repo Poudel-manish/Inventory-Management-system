@@ -1,0 +1,171 @@
+/* CSS Variables for Easy Theming */
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2980b9;
+    --background-light: #f4f4f4;
+    --text-dark: #333;
+    --text-muted: #34495e;
+    --border-color: #ddd;
+    --white: #ffffff;
+    --black: #000000;
+}
+
+/* General Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-light);
+    display: flex;
+    height: 100vh;
+    line-height: 1.6;
+    color: var(--text-dark);
+}
+
+/* Sidebar Styles */
+.sidebar {
+    background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    width: 260px;
+    padding: 20px 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    transition: width 0.3s ease;
+    overflow: hidden;
+}
+
+/* #logo-section {
+    
+    color: var(--white);
+    font-size: 2rem;
+    font-weight: 900;
+    padding: 10px 0;
+    text-align: left;
+    background-color: #000000;
+    margin-left: 5px;
+    border-bottom: 2px solid rgba(255,255,255,0.2);
+} */
+
+.sidebar-options {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sidebar-option {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    color: var(--white);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.sidebar-option i {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.sidebar-option:hover {
+    background-color: var(--white);
+    color: var(--primary-color);
+    transform: translateX(10px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Content Area */
+.content {
+    margin-left: 260px;
+    padding: 40px;
+    width: calc(100% - 260px);
+    background-color: var(--background-light);
+}
+
+.content h1 {
+    color: var(--text-dark);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+/* Content Sections */
+.content-section {
+    display: none;
+    background: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+.content-section.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        position: relative;
+        height: auto;
+    }
+
+    .content {
+        margin-left: 0;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .sidebar-options {
+        flex-direction: row;
+        overflow-x: auto;
+    }
+
+    .sidebar-option {
+        flex-shrink: 0;
+    }
+}
+/* Dashboard Styles */
+#dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: top;
+  justify-content: top;
+  height: calc(100vh - 60px);
+  background-color: #f4f4f4;
+}
+
+#dashboard h1 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+#dashboard p {
+  font-size: 18px;
+  color: #555;
+  text-align: top;
+}
+

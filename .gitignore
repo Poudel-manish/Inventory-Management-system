@@ -1,0 +1,7 @@
+./info.md
+info.md
+/vendor/
+.env
+.DS_Store
+*.log
+/config/database.php
