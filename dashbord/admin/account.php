@@ -1,43 +1,6 @@
  
     
- <?php
-    include '../../db/connect.php';
-    session_start();
-
-    // Check if the company ID is set in the session
-    if (isset($_SESSION['company_id'])) {
-        $company_id = $_SESSION['company_id'];  // Retrieve the company ID from the session
-    } else {
-        // If the session is not set, you can redirect or show an error message
-        die("Company ID is not set.");
-    }
-
-    if (isset($_POST['signup'])) {
-        $company_id = $_POST['company_id'];
-        $username = $_POST['username'];
-        $email = $_POST['email'];
-        $phone = $_POST['phone'];
-        $password = $_POST['password']; // Hash the password
-        $role = $_POST['role'];
-
-
-
-       
-
-            // Insert into the users table
-            $sql = "INSERT INTO users (company_id, username, email, phone, password, role)
-                VALUES ('$company_id', '$username', '$email', '$phone', '$password', '$role')";
-            $result = mysqli_query($conn, $sql);
-
-            if ($result) {
-                echo "<script>alert('Data was inserted');</script>";
-            } else {
-                die("Error: " . mysqli_error($conn));
-            }
-        } else {
-            echo "<script>alert('Invalid role selected');</script>";
-        }
-    ?>
+ 
 
  <!DOCTYPE html>
  <html lang="en">

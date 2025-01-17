@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/productlist.css">
+    <link rel="stylesheet" href="../style/product.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
-    <title>Product List</title>
+    <title>sells List</title>
 
 
 
@@ -15,12 +15,12 @@
 
 <body>
     <!-- Product List Section -->
-    <div id="productList" class="content-section">
-        <h1>Product List</h1>
-        <a href="addProduct.php" type="button"><i class="fa-regular fa-plus"></i>
-            Add products</a>
+    <div id="vendorsList" class="content-section">
+        <h1>vendors</h1>
+        <a href="vendors.php" type="button"><i class="fa-regular fa-plus"></i>
+            Add vendors</a>
         <div class="search">
-            <input type="search" placeholder=" products name" onkeyup="myFun()" id="search">
+            <input type="search" placeholder=" company name" onkeyup="myFun()" id="search">
 
             <!-- <button class="print-button" onclick="window.print()">
                 <i class="fas fa-print"></i> 
@@ -30,47 +30,47 @@
         <table>
             <thead>
                 <tr>
-                    <th>Product ID</th>
-                    <th>Company id</th>
-                    <th>Product Name</th>
-                    <th>SKU</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    <th>Category</th>
-                    <th>Mfg.Date</th>
-                    <th>Exp.Date</th>
+                    <th>Fname</th>
+                    <th>Lname</th>
+                    <th>Company Name</th>
+                    <th>email</th>
+
+                    <th>Address</th>
+                    <th>phone</th>
+                    <th>phone1</th>
+
                     <th>Operation </th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-               
+
                 include '../db/connect.php';
-                $sql = "SELECT * FROM products";
+                $sql = "SELECT * FROM vendors";
                 $result = mysqli_query($conn, $sql);
 
                 if ($result) {
-                    while ($row = mysqli_fetch_assoc($result))
-                     {   $product_id = $row['product_id'];
-                        $company_id = $row['company_id'];
-                        $product_name = $row['product_name']; 
-                          $SKU = $row['sku'];
-                        $quantity = $row['quantity'];
-                        $price = $row['price'];
-                        $category = $row['category'];
-                        $manufacture_date = $row['manufacture_date'];
-                        $expiry_date = $row['expiry_date'];
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $first_name = $row['first_name'];
+                        $last_name = $row['last_name'];
+                        $company_name = $row['company_name'];
+                        $email = $row['email'];
+                        $address = $row['address'];
+                        $phone = $row['phone'];
+                        $phone1 = $row['phone1'];
+                      
+
+
 
                         echo '<tr>
-                                <td>' . $product_id . '</td>
-                                <td>' . $company_id . '</td>
-                                <td>' . $product_name . '</td>
-                                <td>' . $SKU . '</td>
-                                <td>' . $quantity . '</td>
-                                <td>' . $price . '</td>
-                                <td>' . $category . '</td>
-                                <td>' . $manufacture_date . '</td>
-                                <td>' . $expiry_date . '</td>
+                                <td>' .  $first_name . '</td>
+                                <td>' . $last_name . '</td>
+                                <td>' . $company_name . '</td>
+                              <td>' . $email . '</td>
+                                <td>' . $address . '</td>
+                                <td>' . $phone . '</td>
+                                <td>' . $phone1 . '</td>
+                             
                                  <td>
                                 <button class="btn btn-primary" style="
                     background-color: green;">

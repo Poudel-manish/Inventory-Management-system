@@ -3,7 +3,6 @@ session_start();
 include '../db/connect.php';
 
 if (isset($_POST['submit'])) {
-    // Get form data
     $email = $_POST['email'];
     $password = $_POST['password'];
 
@@ -11,7 +10,7 @@ if (isset($_POST['submit'])) {
     $sql = "SELECT * FROM (
                 SELECT company_id AS id, email, password, 'admin' as role FROM companies
                 UNION
-                SELECT id, email, password, role FROM users
+                SELECT user_id AS id, email, password, role FROM users
             ) as all_users WHERE email = ?";
 
     // Prepare and bind parameters
@@ -25,14 +24,19 @@ if (isset($_POST['submit'])) {
             $user = $result->fetch_assoc();
 
             // Verify the password
-            if (password_verify($password, $user['password'])) {
+            if ($password === $user['password']) { // Plain text password comparison
                 // Password is correct, start session and store user data
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['email'] = $user['email'];
                 $_SESSION['role'] = $user['role'];
+                if (isset($user['company_id'])) {
+                    $_SESSION['company_id'] = $user['company_id'];
+                } else {
+                    $_SESSION['company_id'] = $user['id']; // For admin users
+                }
 
                 // Redirect to dashboard or home page
-                header('Location: dashboard.php');
+                header('Location: ../dashbord/website.php');
                 exit;
             } else {
                 echo "<script>alert('Invalid email or password');</script>";
@@ -40,15 +44,11 @@ if (isset($_POST['submit'])) {
         } else {
             echo "<script>alert('Invalid email or password');</script>";
         }
-
-        // Close statement
-        $stmt->close();
     } else {
-        echo "<script>alert('Error preparing the query');</script>";
+        die("Error preparing statement: " . $conn->error);
     }
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">

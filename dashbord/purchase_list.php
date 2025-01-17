@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/product.css">
-    <link rel="stylesheet" href="../style/orderList.css">
+   
+    <link rel="stylesheet" href="../style/productlist.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
 
-    <title>Order List</title>
+    <title>Purchase List</title>
 
 
 
@@ -18,9 +18,9 @@
 <body>
     <!-- Product List Section -->
     <div id="orderList" class="content-section">
-        <h1>Order List</h1>
+        <h1>Purchase List</h1>
         <a href="addorder.php" type="button"> <i class=" fa-regular fa-plus"></i>
-           Create New</a>
+            Create New</a>
         <div class="search">
             <input type="search" placeholder=" Search" onkeyup="myFun()" id="search">
 
@@ -32,30 +32,30 @@
         <table>
             <thead>
                 <tr>
-                    <th>SN</th>
-                    <th>suppliers</th>
+                    <th>Order Id</th>
+                    <th>Company Id</th>
                     <th>Order Num</th>
+                    <th>suppliers</th>
                     <th>Order date</th>
                     <th>Descriptions</th>
                     <th>Quantity</th>
                     <th>Quotedprice</th>
-                    <th>Operation </th>
+                     <th>Operation </th> 
                 </tr>
             </thead>
             <tbody>
                 <?php
-              
+
                 include '../db/connect.php';
                 $sql = "SELECT * FROM `orders`";
                 $result = mysqli_query($conn, $sql);
 
                 if ($result) {
                     while ($row = mysqli_fetch_assoc($result)) {
-                        $order_id =$row['order_id'];
-                        $company_id = $row['company_id'];
-                        $order_num = $row['order_num'];
+                        $order_id = $row['order_id'];
+                        // $company_id = $row['company_id'];
+                        $order_number = $row['order_number'];
                         $supplier = $row['supplier'];
-                       
                         $order_date = $row['order_date'];
                         $description = $row['description'];
                         $quantity = $row['quantity'];
@@ -65,12 +65,11 @@
                                 <td>' . $order_id . '</td>
                                 <td>' . $Company_id . '</td>
                                 <td>' . $order_number . '</td>
-                                   <td>' . $supplier . '</td>
-                                <td>' . $order_date .'</td>
-                             
-                                <td>' . $descriptions . '</td>
+                                <td>' . $supplier . '</td>
+                                <td>' . $order_date . '</td>
+                                <td>' . $description . '</td>
                                 <td>' . $quantity . '</td>
-                                <td>' . $Total  . '</td>
+                                <td>' . $total_price  . '</td>
                                
                              <td>
                                 <button class="btn btn-primary" style="

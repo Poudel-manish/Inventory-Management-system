@@ -1,12 +1,18 @@
 <?php
 
 include '../db/connect.php';
+session_start(); // Start session to access session variables
 
+if (!isset($_SESSION['company_id'])) {
+    die("Company ID not set in session. Please log in again."); // Check if company_id exists in the session
+}
+
+$company_id = $_SESSION['company_id'];
 
 if (isset($_POST['submit'])) {
     // Database insertttt
     $product_id = $_POST['product_id'];
-    $company_id = $_POST['company_id']; 
+    // $company_id = $_POST['company_id']; 
     $product_name = $_POST ['product_name'];
     $SKU = $_POST['SKU'];
     $quantity = $_POST['quantity'];

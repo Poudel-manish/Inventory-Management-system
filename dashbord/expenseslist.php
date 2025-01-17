@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/productlist.css">
+    <link rel="stylesheet" href="../style/expenses_list.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
-    <title>Product List</title>
+    <title>expensis</title>
 
 
 
@@ -15,12 +15,12 @@
 
 <body>
     <!-- Product List Section -->
-    <div id="productList" class="content-section">
-        <h1>Product List</h1>
-        <a href="addProduct.php" type="button"><i class="fa-regular fa-plus"></i>
-            Add products</a>
+    <div id="expensisList" class="content-section">
+        <h1>Expenses</h1>
+        <a href="expenses.php" type="button"><i class="fa-regular fa-plus"></i>
+            New Expenses</a>
         <div class="search">
-            <input type="search" placeholder=" products name" onkeyup="myFun()" id="search">
+            <input type="search" placeholder=" Search" onkeyup="myFun()" id="search">
 
             <!-- <button class="print-button" onclick="window.print()">
                 <i class="fas fa-print"></i> 
@@ -30,47 +30,51 @@
         <table>
             <thead>
                 <tr>
-                    <th>Product ID</th>
-                    <th>Company id</th>
-                    <th>Product Name</th>
-                    <th>SKU</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    <th>Category</th>
-                    <th>Mfg.Date</th>
-                    <th>Exp.Date</th>
+                   
+                    <th>Date</th>
+                    <th>Bill. NO</th>
+                    <th>vendors</th>
+                    <th>category</th>
+                    <th>payment</th>
+                    <th>account</th>
+                    <th>amount</th>
+                    <th>note</th>
                     <th>Operation </th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-               
+
                 include '../db/connect.php';
-                $sql = "SELECT * FROM products";
+                $sql = "SELECT * FROM expenses";
                 $result = mysqli_query($conn, $sql);
 
                 if ($result) {
-                    while ($row = mysqli_fetch_assoc($result))
-                     {   $product_id = $row['product_id'];
-                        $company_id = $row['company_id'];
-                        $product_name = $row['product_name']; 
-                          $SKU = $row['sku'];
-                        $quantity = $row['quantity'];
-                        $price = $row['price'];
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $date = $row['date'];
+                        $bill_no = $row['bill_no'];
+                        $vendors = $row['vendors'];
                         $category = $row['category'];
-                        $manufacture_date = $row['manufacture_date'];
-                        $expiry_date = $row['expiry_date'];
+                        $payment = $row['payment'];
+                        $account = $row['account'];
+                        $amount = $row['amount'];
+                        $note = $row['note'];
+
+
 
                         echo '<tr>
-                                <td>' . $product_id . '</td>
-                                <td>' . $company_id . '</td>
-                                <td>' . $product_name . '</td>
-                                <td>' . $SKU . '</td>
-                                <td>' . $quantity . '</td>
-                                <td>' . $price . '</td>
-                                <td>' . $category . '</td>
-                                <td>' . $manufacture_date . '</td>
-                                <td>' . $expiry_date . '</td>
+                                
+                                 <td>' . $date . '</td>
+                                <td>' . $bill_no . '</td>
+                               
+                                <td>' . $vendors . '</td>
+                              <td>' . $category . '</td>
+                               
+                                <td>' . $payment . '</td>
+                                <td>' . $account . '</td>
+                                <td>' . $amount . '</td>
+                                 <td>' . $note . '</td>
+                             
                                  <td>
                                 <button class="btn btn-primary" style="
                     background-color: green;">

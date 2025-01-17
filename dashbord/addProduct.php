@@ -18,9 +18,9 @@ include '../backend/backend.php';
       <h1>Add Product</h1>
       <label for="productid">Product ID:</label>
       <input type="text" id="product_id" name="product_id" />
-
+<!-- 
       <label for="productname">company :</label>
-      <input type="text" id="company_id" name="company_id" />
+      <input type="text" id="company_id" name="company_id" /> -->
 
       <label for="product Name">Product name:</label>
       <input type="text" id="product_name" name="product_name" />

@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/productlist.css">
+    <link rel="stylesheet" href="../style/sealList.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
-    <title>Product List</title>
+    <title>sales List</title>
 
 
 
@@ -16,11 +16,11 @@
 <body>
     <!-- Product List Section -->
     <div id="productList" class="content-section">
-        <h1>Product List</h1>
-        <a href="addProduct.php" type="button"><i class="fa-regular fa-plus"></i>
-            Add products</a>
+        <h1>sales List</h1>
+        <a href="sales.php" type="button"><i class="fa-regular fa-plus"></i>
+            Create New</a>
         <div class="search">
-            <input type="search" placeholder=" products name" onkeyup="myFun()" id="search">
+            <input type="search" placeholder=" Search" onkeyup="myFun()" id="search">
 
             <!-- <button class="print-button" onclick="window.print()">
                 <i class="fas fa-print"></i> 
@@ -30,47 +30,47 @@
         <table>
             <thead>
                 <tr>
-                    <th>Product ID</th>
+                    <th>Bill. NO</th>
                     <th>Company id</th>
+                    <th>product id</th>
                     <th>Product Name</th>
-                    <th>SKU</th>
+
                     <th>Quantity</th>
+                    <th>Date</th>
                     <th>Price</th>
-                    <th>Category</th>
-                    <th>Mfg.Date</th>
-                    <th>Exp.Date</th>
+
                     <th>Operation </th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-               
+
                 include '../db/connect.php';
-                $sql = "SELECT * FROM products";
+                $sql = "SELECT * FROM sales";
                 $result = mysqli_query($conn, $sql);
 
                 if ($result) {
-                    while ($row = mysqli_fetch_assoc($result))
-                     {   $product_id = $row['product_id'];
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $bill_id = $row['bill_id'];
                         $company_id = $row['company_id'];
-                        $product_name = $row['product_name']; 
-                          $SKU = $row['sku'];
-                        $quantity = $row['quantity'];
-                        $price = $row['price'];
-                        $category = $row['category'];
-                        $manufacture_date = $row['manufacture_date'];
-                        $expiry_date = $row['expiry_date'];
+                        $product_id = $row['product_id'];
+                        $product_name = $row['product_name'];
+                        // $SKU = $row['sku'];
+                        $quantity_sold = $row['quantity_sold'];
+                        $sale_date = $row['sale_date'];
+                        $total_price = $row['total_price'];
+
+
 
                         echo '<tr>
-                                <td>' . $product_id . '</td>
+                                <td>' . $bill_id . '</td>
                                 <td>' . $company_id . '</td>
-                                <td>' . $product_name . '</td>
-                                <td>' . $SKU . '</td>
-                                <td>' . $quantity . '</td>
-                                <td>' . $price . '</td>
-                                <td>' . $category . '</td>
-                                <td>' . $manufacture_date . '</td>
-                                <td>' . $expiry_date . '</td>
+                                <td>' . $product_id . '</td>
+                              <td>' . $product_name . '</td>
+                                <td>' . $quantity_sold . '</td>
+                                <td>' . $sale_date . '</td>
+                                <td>' . $total_price . '</td>
+                             
                                  <td>
                                 <button class="btn btn-primary" style="
                     background-color: green;">

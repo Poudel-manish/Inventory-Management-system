@@ -4,7 +4,7 @@ include '../db/connect.php';
 
 // Check if the 'update' parameter is set in the URL and is not empty
 if (!isset($_GET['update']) || empty($_GET['update'])) {
-  
+  die("Error: Update parameter is missing or invalid."); // Added error handling for missing or invalid 'update' parameter
 }
 
 $product_id = $_GET['update']; // Get the product ID from the URL
@@ -14,7 +14,7 @@ $sql = "SELECT * FROM products WHERE product_id = '$product_id'";
 $result = mysqli_query($conn, $sql);
 
 if (!$result || mysqli_num_rows($result) == 0) {
-  die("Error: Product not found.");
+  die("Error: Product not found."); // Added error handling for product not found
 }
 
 $row = mysqli_fetch_assoc($result); // Fetch the product details into an associative array
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $expiry_date = $_POST['expiry_date'];
 
   // Update the product details in the database
-  $sql = "UPDATE `products` SET 
+  $sql = "UPDATE products SET 
             company_id = '$company_id',
             product_name = '$product_name',
             sku = '$sku',
@@ -46,11 +46,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $result = mysqli_query($conn, $sql);
 
   if ($result) {
-    echo "<script> alert('Update successful!'); </script>";
-    header("Location: productList.php");
+    echo "<script>alert('Update successful!');</script>"; // Added success message
+    header("Location: productList.php"); // Redirect to productList.php after successful update
     exit();
   } else {
-    die("Error updating record: " . mysqli_error($conn));
+    die("Error updating record: " . mysqli_error($conn)); // Added error handling for update failure
   }
 }
 ?>
@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <form method="post" action="">
     <div id="addProduct" class="content-section">
       <h1>Update Product</h1>
-      <label for="productid">Product ID:</label>
+      <label for="product_id">Product ID:</label>
       <input type="text" id="product_id" name="product_id" value="<?php echo $row['product_id']; ?>" readonly />
 
       <label for="company_id">Company ID:</label>

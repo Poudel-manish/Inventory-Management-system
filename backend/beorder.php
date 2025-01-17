@@ -1,13 +1,21 @@
 
 <?php
+
 require( "../db/connect.php");
+session_start(); //session start
+if (!isset($_SESSION['company_id'])) {
+    die("Company ID not set in session. Please log in again."); // Check if company_id exists in the session
+}
+
+$company_id = $_SESSION['company_id'];
+
 $sql = "SELECT * FROM `orders`";
 $result = mysqli_query($conn, $sql);
 
 if (isset($_POST['Add'])) {
     // Database insert
     $order_id= $_POST['order_id'];
-    $company_id= $_POST['company_id'];
+    // $company_id= $_POST['company_id'];
     $order_number = $_POST['order_number'];
     $supplier = $_POST['supplier'];
     $order_date = $_POST['order_date'];

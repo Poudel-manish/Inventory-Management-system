@@ -1,0 +1,119 @@
+/* General Body Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Form Container */
+.form-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Title */
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: 2px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 15px 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+/* Row Styling */
+.row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.row input {
+    width: 230%;
+}
+
+.email-input {
+    position: relative;
+}
+
+/* Required Field */
+.required label span {
+    color: red;
+}
+
+/* Submit Button */
+input[type="submit"] {
+    background-color:#18d8ae;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    margin-top: 30px;
+    
+    border-radius: 80px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #18d8ae;
+}
+
+/* Placeholder Styling */
+input::placeholder {
+    color: #aaa;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+    }
+
+    .row input {
+        width: 100%;
+    }
+
+    .form-container {
+        padding: 20px;
+        margin: 0 15px;
+    }
+}

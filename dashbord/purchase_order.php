@@ -20,14 +20,17 @@ include '../backend/beorder.php';
             <label for="orderid">Order ID:</label>
             <input type="text" id="order_id" name="order_id" />
 
-            <label for="cid">Company Id:</label>
-            <input type="text" id="company_id" name="supplier" />
+            <!-- <label for="cid">Company Id:</label>
+            <input type="text" id="company_id" name="supplier" /> -->
+
+
+            <label for="ordernum">Order Number:</label>
+            <input type="text" id="order_number" name="order_number" />
 
             <label for="suppliers">suppliers:</label>
             <input type="text" id="supplier" name="supplier" />
 
-            <label for="ordernum">Order Number:</label>
-            <input type="text" id="order_number" name="order_number" />
+
 
             <label for="orderdate">Order Date:</label>
             <input type="date" name="order_date" />
