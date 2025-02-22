@@ -31,6 +31,7 @@ CREATE TABLE `products` (
   `manufacture_date` DATE, -- Manufacturing date
   `expiry_date` DATE, -- Expiry date
   FOREIGN KEY (`company_id`) REFERENCES `companies`(`company_id`) ON DELETE CASCADE
+   FOREIGN KEY (`user_id`) REFERENCES `users`(`user_id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Table for inventory adjustments
@@ -80,6 +81,7 @@ CREATE TABLE `users` (
   `email` VARCHAR(100) NOT NULL UNIQUE, -- Unique email for the user
   `phone` VARCHAR(15) NOT NULL UNIQUE, -- Unique phone number
   FOREIGN KEY (`company_id`) REFERENCES `companies`(`company_id`) ON DELETE CASCADE
+  FOREIGN KEY (`user_id`) REFERENCES `users`(`user_id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 COMMIT;

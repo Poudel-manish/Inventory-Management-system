@@ -1,7 +1,10 @@
 
 <?php
+session_start();
+$user_id = $_SESSION['user_id'];
 
 require("../db/connect.php");
+
 
 
 $sql = "SELECT * FROM `customer`";
@@ -19,8 +22,8 @@ if (isset($_POST['submit'])) {
 
 
     // Updated SQL query to match database column names
-    $sql = "INSERT INTO `customer` (first_name,last_name,company_name,email, address, phone,phone1)
-VALUES ('$first_name','$last_name','$company_name','$email' ,'$address', '$phone','$phone1' )";
+    $sql = "INSERT INTO `customer` (first_name,last_name,company_name,email, address, phone,phone1, user_id)
+VALUES ('$first_name','$last_name','$company_name','$email' ,'$address', '$phone','$phone1', '$user_id')";
 
 
     // Execute query and check for success
