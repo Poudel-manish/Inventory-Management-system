@@ -74,7 +74,7 @@
                              <td>
                                 <button class="btn btn-primary" style="
                               background-color: green;">
-                            <a href="../purchase/purchase_list.php?orderid=<?php echo $productid; ?>" class="text-light" style="text-decoration: none;">Update</a>
+                            <a href="../update/up_purchase_list.php?orderid=<?php echo $productid; ?>" class="text-light" style="text-decoration: none;">Update</a>
                              </button>
                                 <button id="orderButton" class="order-button">Pending</button>
 

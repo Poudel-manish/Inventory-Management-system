@@ -31,27 +31,22 @@
         aside {
             width: 250px;
             background-color: #18d8ae;
-            /* Updated background color */
-            color: #fff;
-            height: 100vh;
             position: sticky;
             top: 0;
-            transition: width 0.3s ease;
+            height: 100vh;
+            transition: all 0.3s ease;
         }
 
-        aside .top {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+        .top {
             background-color: #14b895;
-            /* Darker shade for the top section */
+            padding: 20px;
+            text-align: center;
         }
 
-        aside .logo h2 {
+        .logo h2 {
+            color: white;
             font-size: 24px;
             font-weight: bold;
-            color: #fff;
         }
 
         .sidebar {
@@ -61,88 +56,77 @@
         .sidebar a {
             display: flex;
             align-items: center;
-            padding: 12px 20px;
+            padding: 15px;
             color: #e0f7fa;
-            /* Light text color for better contrast */
             text-decoration: none;
+            font-size: 18px;
             transition: all 0.3s ease;
         }
 
         .sidebar a:hover {
             background-color: #14b895;
-            /* Darker shade on hover */
-            color: #fff;
-        }
-
-        .sidebar a.active {
-            background-color: #14b895;
-            /* Darker shade for active link */
-            color: #fff;
+            color: white;
         }
 
         .sidebar a .material-icons-outlined {
             margin-right: 10px;
-            font-size: 20px;
         }
 
-        .sidebar a h3 {
-            font-size: 16px;
-            font-weight: 500;
-            margin: 0;
-        }
-
-        /* Dropdown Styling */
         .dropdown-container {
+            padding: 0 20px;
             position: relative;
         }
 
-        .dropdown-container>a {
+        .dropdown-container a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #e0f7fa;
+            font-size: 18px;
             cursor: pointer;
+            padding: 15px;
+            transition: all 0.3s ease;
         }
 
-        .dropdown-container .dropdown {
-            display: none;
-            padding-left: 30px;
+        .dropdown-container a:hover {
             background-color: #14b895;
-            /* Darker shade for dropdown */
+            color: white;
+        }
+
+        .dropdown-container .material-icons-outlined {
+            margin-right: 10px;
+        }
+
+        .dropdown {
+            display: none;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .dropdown li a {
+            padding: 10px;
+            color: #e0f7fa;
+            text-decoration: none;
+            font-size: 16px;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown li a:hover {
+            background-color: #11997d;
         }
 
         .dropdown-container.active .dropdown {
             display: block;
         }
 
-        .dropdown-container .dropdown li {
-            list-style: none;
-        }
-
-        .dropdown-container .dropdown li a {
-            padding: 10px 20px;
-            color: #e0f7fa;
-            /* Light text color for dropdown items */
-            text-decoration: none;
-            display: block;
-            transition: all 0.3s ease;
-        }
-
-        .dropdown-container .dropdown li a:hover {
-            background-color: #11997d;
-            /* Even darker shade on hover */
-            color: #fff;
-        }
-
         /* Main Content Styling */
         main {
-            flex: 1;
+            background-color: white;
             padding: 40px;
-            /* Increased padding for more margin */
-            background-color: #fff;
-            margin-left: 20px;
-            /* Added margin between sidebar and content */
-        }
-
-        main h1 {
-            font-size: 24px;
-            color: #2c3e50;
+            margin-left: 250px;
+            flex-grow: 1;
         }
 
         /* Responsive Design */
@@ -151,27 +135,38 @@
                 width: 80px;
             }
 
-            aside .logo h2 {
+            .logo h2 {
                 display: none;
             }
 
-            .sidebar a h3 {
+            .sidebar a h3,
+            .dropdown-container a h3 {
                 display: none;
             }
 
-            .sidebar a .material-icons-outlined {
+            .sidebar a,
+            .dropdown-container a {
+                justify-content: center;
+            }
+
+            .dropdown-container .material-icons-outlined {
                 margin-right: 0;
             }
 
-            .dropdown-container .dropdown {
-                position: absolute;
-                left: 80px;
-                top: 0;
-                width: 200px;
-                background-color: #14b895;
-                /* Darker shade for dropdown */
-                border-radius: 5px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            .dropdown-container .material-icons-outlined {
+                font-size: 24px;
+            }
+
+            .dropdown-container a {
+                justify-content: space-between;
+            }
+
+            main {
+                margin-left: 80px;
+            }
+
+            .dropdown-container.active .dropdown {
+                right: 0;
             }
         }
     </style>
@@ -260,10 +255,7 @@
             </div>
         </aside>
 
-        <!-- Main Content -->
-        <main>
-            <h1>Welcome to the IMS Dashboard</h1>
-        </main>
+   
     </div>
 
     <script>

@@ -32,12 +32,13 @@
                 <tr>
                     <th>Bill. NO</th>
                     <th>Company id</th>
-                    
+
                     <th>Product Name</th>
 
                     <th>Quantity</th>
                     <th>Date</th>
                     <th>Price</th>
+                    <th>Total Price</th>
 
                     <th>Operation </th>
                 </tr>
@@ -53,11 +54,12 @@
                     while ($row = mysqli_fetch_assoc($result)) {
                         $bill_id = $row['bill_id'];
                         $company_id = $row['company_id'];
-                      
+
                         $product_name = $row['product_name'];
                         // $SKU = $row['sku'];
                         $quantity_sold = $row['quantity_sold'];
-                        $sale_date = $row['sale_date'];
+                        $date = $row['date'];
+                        $price = $row['price'];
                         $total_price = $row['total_price'];
 
 
@@ -68,7 +70,8 @@
                                
                               <td>' . $product_name . '</td>
                                 <td>' . $quantity_sold . '</td>
-                                <td>' . $sale_date . '</td>
+                                <td>' . $date . '</td>
+                                 <td>' . $price . '</td>
                                 <td>' . $total_price . '</td>
                              
                                  <td>
@@ -78,7 +81,7 @@
                 </button>
                 <button class="btn btn-danger" style="
                     background-color: red;">
-                    <a href="delete.php?delete=<?php echo $productid; ?>" style="text-decoration: none;">Delete</a>
+                    <a href="../delete/salelist.php?delete=<?php echo $bill_id; ?>" style="text-decoration: none;">Delete</a>
                                 </button>
 
 

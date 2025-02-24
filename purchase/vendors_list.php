@@ -14,6 +14,8 @@
 </head>
 
 <body>
+  
+
     <!-- Product List Section -->
     <div id="vendorsList" class="content-section">
         <h1>vendors</h1>
@@ -58,7 +60,7 @@
                         $address = $row['address'];
                         $phone = $row['phone'];
                         $phone1 = $row['phone1'];
-                      
+
 
 
 
@@ -74,11 +76,10 @@
                                  <td>
                                       <button class="btn btn-primary" style="
                     background-color: green;">
-                    <a href="inventory_update/product_list_update.php?updateid=$productid" class="text-light" style="text-decoration: none;">Update</a>
-                </button>
+<a href="../update/up_vendorList.php?updateid=' . $first_name . '" class="text-light" style="text-decoration: none;">Update</a>                </button>
                 <button class="btn btn-danger" style="
                     background-color: red;">
-                    <a href="../delete/vendors_list_delete.php?delete=' .$first_name. '" style="text-decoration: none;">Delete</a>
+                    <a href="../delete/vendors_list_delete.php?delete=' . $first_name . '" style="text-decoration: none;">Delete</a>
                                 </button>
 
 

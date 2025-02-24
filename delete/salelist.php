@@ -5,16 +5,16 @@ include '../db/connect.php';
 
 if (isset($_GET['delete'])) {
     // Get the product_id from the URL parameter and escape it to prevent SQL injection
-    $productid = mysqli_real_escape_string($conn, $_GET['delete']);
+    $bill_id = mysqli_real_escape_string($conn, $_GET['delete']);
 
     // Use the correct variable in the DELETE query
-    $sql = "DELETE FROM `products` WHERE product_id = '$productid'";
+    $sql = "DELETE FROM `sales` WHERE bill_id = '$bill_id'";
 
     $result = mysqli_query($conn, $sql);
 
     if ($result) {
         // If the deletion is successful, redirect to the product list
-        header("Location: productList.php");
+        header("Location: .../sales/saleslist.php");
         exit;
     } else {
         // If the deletion fails, display an error message

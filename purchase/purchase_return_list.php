@@ -14,7 +14,7 @@
     <!-- Purchase Return List Section -->
     <div id="productList" class="content-section">
         <h1>Purchase Return List</h1>
-        <a href="../purchase/purchase_order.php" type="button"><i class="fa-regular fa-plus"></i>
+        <a href="../purchase/purchase_return.php" type="button"><i class="fa-regular fa-plus"></i>
             Add Purchase Return</a>
         <div class="search">
             <input type="search" placeholder="Search by Order ID" onkeyup="myFun()" id="search">
@@ -23,12 +23,13 @@
         <table>
             <thead>
                 <tr>
-                    <th>Order ID</th>                  
+                    <th>Order ID</th>
                     <th>Vendors</th>
                     <th>Order Date</th>
                     <th>Descriptions</th>
                     <th>Quantity</th>
                     <th>Amount</th>
+                    <th>Total Amount</th>
                     <th>Operation</th>
                 </tr>
             </thead>
@@ -41,12 +42,13 @@
                 if ($result) {
                     while ($row = mysqli_fetch_assoc($result)) {
                         $orderid = $row['orderid'];
-                      
+
                         $suppiers = $row['suppiers'];
                         $orderdate = $row['orderdate'];
                         $descriptions = $row['descriptions'];
                         $quantity = $row['quantity'];
                         $Amount = $row['Amount'];
+                        $total_amount = $row['total_amount'];
 
                         echo '<tr>
                                 <td>' . $orderid . '</td>
@@ -56,12 +58,13 @@
                                 <td>' . $descriptions . '</td>
                                 <td>' . $quantity . '</td>
                                 <td>' . $Amount . '</td>
+                                 <td>' . $total_amount . '</td>
                                  <td>
                                 <button class="btn btn-primary" style="background-color: green;">
                                     <a href="update.php?updateid=' . $orderid . '" class="text-light" style="text-decoration: none;">Update</a>
                                 </button>
                                 <button class="btn btn-danger" style="background-color: red;">
-                                    <a href="../delete/purchase_return_dlt.php?delete=' . $suppiers. '" style="text-decoration: none;">Delete</a>
+                                    <a href="../delete/purchase_return_dlt.php?delete=' . $suppiers . '" style="text-decoration: none;">Delete</a>
                                 </button>
                                 </td>           
                               </tr>';

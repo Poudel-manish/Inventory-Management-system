@@ -31,10 +31,10 @@ include "../backend/b_sells.php"
 
 
       <label for="Date">Date:</label>
-      <input type="date" id="sale_date" name="sale_date" />
+      <input type="date" id="date" name="date" />
 
-      <label for="productPrice">Total Price:</label>
-      <input type="text" id="Price" name="total_price" />
+      <label for="productPrice"> Price:</label>
+      <input type="text" id="Price" name="price" />
 
       <input type="submit" name="submit" value="submit" />
 

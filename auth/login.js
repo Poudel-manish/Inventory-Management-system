@@ -1,40 +1,22 @@
-let eyeicon=document.getElementById("togglePassword");
-    let password=document.getElementById("password");
-    eyeicon.onclick=function(){
-        if(password.type == "password"){
-            password.type="text";
-            eyeicon.classList.add("fa-eye-slash");
-            eyeicon.classList.remove("fa-eye");
-        }
-        else{
-        password.type="password";
-        eyeicon.classList.add("fa-eye");
-        eyeicon.classList.remove("fa-eye-slash");
-        }
-    }
-let loginForm = document.getElementsByClassName("login-form")[0];
+// Toggle password visibility
+function togglePasswordVisibility() {
+  const passwordInput = document.getElementById("password");
+  const toggleIcon = document.querySelector(".password-toggle i");
 
-loginForm.addEventListener("submit", function(event) {
-    event.preventDefault();
+  if (passwordInput.type === "password") {
+    passwordInput.type = "text";
+    toggleIcon.classList.remove("fa-eye");
+    toggleIcon.classList.add("fa-eye-slash");
+  } else {
+    passwordInput.type = "password";
+    toggleIcon.classList.remove("fa-eye-slash");
+    toggleIcon.classList.add("fa-eye");
+  }
+}
 
-let username = document.getElementById("username").value.trim();
-   let password = document.getElementById("password").value.trim(); 
-
-    if (username === "" && password === "") {
-        alert("Please enter both username and password.")
-        return false;
-    }
-    if (username === "")
-    {
-        alert("Please enter your username !")
-        return false;
-    }
-    if(password === "")
-    {
-        alert("Please enter your password")
-        return false;
-    }
-    
-   
-    
+// Form submission loading spinner
+document.querySelector("form").addEventListener("submit", function (e) {
+  const button = document.querySelector(".login-button");
+  button.classList.add("loading");
+  button.disabled = true;
 });

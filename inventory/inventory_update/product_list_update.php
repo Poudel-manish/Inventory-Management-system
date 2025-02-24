@@ -1,48 +1,58 @@
 <?php
-
 include '../../db/connect.php';
 
-
-session_start(); // Start session to access session variables
-
-if (!isset($_SESSION['user_id'])) {
-    die("Company ID not set in session. Please log in again."); // Check if company_id exists in the session
-}
-
-$uid = $_SESSION['user_id'];
-$product_id = $_GET['updateid'];
-
-$sqlFetch = "SELECT `company_id` FROM `users` WHERE `user_id` = '$uid'";
-$sqlResult = mysqli_query($conn, $sqlFetch);
-
-if ($sqlResult) {
-    $row = mysqli_fetch_assoc($sqlResult);
-    $company_id = $row['company_id']; // 
-} else {
-    die("Error fetching company_id: " . mysqli_error($conn));
-}
-
-// $company_id = $_SESSION['user_id'];
-$user_id = $_SESSION['user_id'];
-
-
+// Check if the update ID is set
 if (isset($_GET['updateid'])) {
-    $product_id = $_GET['updateid'];
+    $product_id = mysqli_real_escape_string($conn, $_GET['updateid']);
 
-    // Fetch specific product details
-    $sql = "SELECT * FROM products WHERE product_id = '$product_id' AND company_id = '$company_id' LIMIT 1";
+    // Fetch product details based on the provided ID
+    $sql = "SELECT * FROM products WHERE product_id = '$product_id'";
     $result = mysqli_query($conn, $sql);
 
     if ($result && mysqli_num_rows($result) > 0) {
-        $product = mysqli_fetch_assoc($result);
+        $row = mysqli_fetch_assoc($result);
+
+        $product_name = $row['product_name'];
+        $quantity = $row['quantity'];
+        $price = $row['price'];
+        $total_price = $row['total_price'];
+        $category = $row['category'];
+        $manufacture_date = $row['manufacture_date'];
+        $expiry_date = $row['expiry_date'];
     } else {
-        die("Error: Product not found.");
+        die("Product not found.");
     }
-} else {
-    die("Error: No product ID provided.");
 }
 
-mysqli_close($conn);
+// Update the product when the form is submitted
+if (isset($_POST['submit'])) {
+    $product_name = $_POST['product_name'];
+    $quantity = $_POST['quantity'];
+    $price = $_POST['price'];
+    $total_price = $quantity * $price;
+    $category = $_POST['category'];
+    $manufacture_date = $_POST['manufacture_date'];
+    $expiry_date = $_POST['expiry_date'];
+
+    // Update query
+    $update_sql = "UPDATE products SET 
+        product_name='$product_name', 
+        quantity='$quantity', 
+        price='$price', 
+        total_price='$total_price', 
+        category='$category', 
+        manufacture_date='$manufacture_date', 
+        expiry_date='$expiry_date' 
+        WHERE product_id = '$product_id'";
+
+    $update_result = mysqli_query($conn, $update_sql);
+
+    if ($update_result) {
+        echo "<script>alert('Product Updated Successfully!'); window.location.href='../productList.php';</script>";
+    } else {
+        die("Update failed: " . mysqli_error($conn));
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -50,40 +60,33 @@ mysqli_close($conn);
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../style/addproduct.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <title>Update Product</title>
+    <link rel="stylesheet" href="../style/update.css"> <!-- Add your CSS file for styling -->
 </head>
 
 <body>
-    <div id="productList" class="content-section">
-        <h1>Update Product</h1>
-        <form action="updateProductDB.php" method="POST">
-            <label for="productid">Product ID:</label>
-            <input type="text" id="product_id" name="product_id" value="<?php echo htmlspecialchars($product['product_id']); ?>" readonly />
+    <h1>Update Product</h1>
+    <form method="POST">
+        <label>Product Name:</label>
+        <input type="text" name="product_name" value="<?php echo $product_name; ?>" required><br>
 
-            <label for="product_name">Product Name:</label>
-            <input type="text" id="product_name" name="product_name" value="<?php echo htmlspecialchars($product['product_name']); ?>" />
+        <label>Quantity:</label>
+        <input type="number" name="quantity" value="<?php echo $quantity; ?>" required><br>
 
-            <label for="quantity">Quantity:</label>
-            <input type="text" id="QTY" name="quantity" value="<?php echo htmlspecialchars($product['quantity']); ?>" />
+        <label>Price:</label>
+        <input type="number" step="0.01" name="price" value="<?php echo $price; ?>" required><br>
 
-            <label for="productPrice">Product Price:</label>
-            <input type="text" id="price" name="price" value="<?php echo htmlspecialchars($product['price']); ?>" />
+        <label>Category:</label>
+        <input type="text" name="category" value="<?php echo $category; ?>" required><br>
 
-            <label for="category">Category:</label>
-            <input type="text" id="category" name="category" value="<?php echo htmlspecialchars($product['category']); ?>" />
+        <label>Manufacture Date:</label>
+        <input type="date" name="manufacture_date" value="<?php echo $manufacture_date; ?>" required><br>
 
-            <label for="manufactureDate">Manufacture Date:</label>
-            <input type="date" id="manufacture_date" name="manufacture_date" value="<?php echo htmlspecialchars($product['manufacture_date']); ?>" />
+        <label>Expiry Date:</label>
+        <input type="date" name="expiry_date" value="<?php echo $expiry_date; ?>" required><br>
 
-            <label for="expiryDate">Expiry Date:</label>
-            <input type="date" id="expiry_date" name="expiry_date" value="<?php echo htmlspecialchars($product['expiry_date']); ?>" />
-
-            <input type="submit" name="submit" value="Update Product" />
-        </form>
-    </div>
+        <button type="submit" name="submit">Update Product</button>
+    </form>
 </body>
 
 </html>

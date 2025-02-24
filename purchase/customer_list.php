@@ -60,7 +60,7 @@ include '../backend/bcustomer.php';
                                 <td>' . $phone1 . '</td>
                                 <td>
                                     <button class="btn btn-primary" style="background-color: green;">
-                                        <a href="update.php?updateid=' . $first_name . '" class="text-light" style="text-decoration: none;">Update</a>
+                                        <a href="../update/update_customer.php?updateid=' . $first_name . '" class="text-light" style="text-decoration: none;">Update</a>
                                     </button>
                                     <button class="btn btn-danger" style="background-color: red;">
                                         <a href="../delete/customerList_dlt.php?delete=' . $first_name . '" style="text-decoration: none;">Delete</a>

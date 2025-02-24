@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/productlist.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-
-    <title>Product List</title>
+  <title>Product List</title>
 
 
 
@@ -22,9 +21,7 @@
         <div class="search">
             <input type="search" placeholder=" products name" onkeyup="myFun()" id="search">
 
-            <!-- <button class="print-button" onclick="window.print()">
-                <i class="fas fa-print"></i> 
-            </button> -->
+          
         </div>
 
         <table>
@@ -40,7 +37,6 @@
 
                     ?>
                     <th>Product Name</th>
-
                     <th>Quantity</th>
                     <th>Price</th>
                      <th>Total Price</th> 
@@ -94,8 +90,7 @@
                                  <td>
                                 <button class="btn btn-primary" style="
                     background-color: green;">
-                    <a href="inventory_update/product_list_update.php?updateid=$productid" class="text-light" style="text-decoration: none;">Update</a>
-                </button>
+    <a href="inventory_update/product_list_update.php?updateid=' . $product_id . '" class="text-light" style="text-decoration: none;">Update</a>
                 <button class="btn btn-danger" style="
                     background-color: red;">
                     <a href="productDeleteDB.php?delete=' . $product_id . '" style="text-decoration: none;">Delete</a>

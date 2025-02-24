@@ -78,7 +78,7 @@
                                  <td>
                  <button class="btn btn-primary" style="
                     background-color: green;">
-                    <a href="inventory_update/product_list_update.php?updateid=$productid" class="text-light" style="text-decoration: none;">Update</a>
+<a href="../update/up_expenses.php?updateid=<?php echo $vendors; ?>" class="text-light" style="text-decoration: none;">Update</a>
                 </button>
                 <button class="btn btn-danger" style="
                     background-color: red;">

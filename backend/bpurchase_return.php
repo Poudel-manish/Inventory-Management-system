@@ -14,6 +14,7 @@ if (isset($_POST['submit'])) {
     $descriptions = $_POST['descriptions'];
     $quantity = $_POST['quantity'];
     $Amount = $_POST['Amount'];
+    $total_amount= $quantity* $Amount;
     $user_id = $_SESSION['user_id'];
     if ($_SESSION['role'] == 'manager' || $_SESSION['role'] == 'employee') {
 
@@ -30,8 +31,8 @@ if (isset($_POST['submit'])) {
     }
 
     // Updated SQL query to match database column names
-    $sql = "INSERT INTO `purchase_return` (orderid, ordernumber, suppiers, orderdate, descriptions, quantity, Amount,user_id,company_id)
-            VALUES ('$orderid', '$ordernumber', '$suppiers', '$orderdate', '$descriptions', '$quantity', '$Amount','$user_id','$company_id')";
+    $sql = "INSERT INTO `purchase_return` (orderid, ordernumber, suppiers, orderdate, descriptions, quantity, Amount,total_amount,user_id,company_id)
+            VALUES ('$orderid', '$ordernumber', '$suppiers', '$orderdate', '$descriptions', '$quantity', '$Amount','$total_amount','$user_id','$company_id')";
 
     // Execute query and check for success
     if (mysqli_query($conn, $sql)) {

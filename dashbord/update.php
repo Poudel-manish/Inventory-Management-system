@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   if ($result) {
     echo "<script>alert('Update successful!');</script>"; // Added success message
-    header("Location: productList.php"); // Redirect to productList.php after successful update
+    header("Location: ../productList.php"); // Redirect to productList.php after successful update
     exit();
   } else {
     die("Error updating record: " . mysqli_error($conn)); // Added error handling for update failure

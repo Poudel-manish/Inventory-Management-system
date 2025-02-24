@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $result = mysqli_query($conn, $sql);
     if ($result) {
         echo "<script> alert('Update successful!'); </script>";
-        header("Location:orderList.php");
+        header("Location:../");
         exit();
     } else {
         die("Error updating record: " . mysqli_error($conn));
