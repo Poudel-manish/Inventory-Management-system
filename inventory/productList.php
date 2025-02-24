@@ -93,7 +93,7 @@
     <a href="inventory_update/product_list_update.php?updateid=' . $product_id . '" class="text-light" style="text-decoration: none;">Update</a>
                 <button class="btn btn-danger" style="
                     background-color: red;">
-                    <a href="productDeleteDB.php?delete=' . $product_id . '" style="text-decoration: none;">Delete</a>
+                    <a href="../delete/product_delete.php?delete=' . $product_id . '" style="text-decoration: none;">Delete</a>
                                 </button>
 
 

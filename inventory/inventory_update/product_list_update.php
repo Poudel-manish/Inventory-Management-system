@@ -61,7 +61,7 @@ if (isset($_POST['submit'])) {
 <head>
     <meta charset="UTF-8">
     <title>Update Product</title>
-    <link rel="stylesheet" href="../style/update.css"> <!-- Add your CSS file for styling -->
+    <link rel="stylesheet" href="../../style/up_product_list.css"> 
 </head>
 
 <body>

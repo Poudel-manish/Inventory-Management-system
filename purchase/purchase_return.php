@@ -20,22 +20,36 @@ include '../db/connect.php';
             <label for="orderid">Order ID:</label>
             <input type="text" id="orderid" name="orderid" />
 
-         
 
-            <label for="suppiers">Supplier:</label>
-            <input type="text" id="suppiers" name="suppiers" />
+
+            <label for="suppliers">Suppliers:</label>
+            <select id="supplier" name="supplier">
+                <option value="" selected>Select a supplier</option>
+                <?php
+                // Fetch suppliers from the orders table
+                $sql = "SELECT DISTINCT supplier FROM orders";
+                $result = mysqli_query($conn, $sql);
+
+                if ($result) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $supplier = $row['supplier'];
+                        echo '<option value="' . $supplier . '">' . $supplier . '</option>';
+                    }
+                }
+                ?>
+            </select>
 
             <label for="orderdate">Order Date:</label>
-            <input type="date" id="orderdate" name="orderdate" />
+            <input type="date" id="orderdate" name="orderdate" required />
 
             <label for="descriptions">Descriptions:</label>
-            <input type="text" id="descriptions" name="descriptions" />
+            <input type="text" id="descriptions" name="descriptions" required />
 
             <label for="quantity">Quantity:</label>
-            <input type="text" id="quantity" name="quantity" />
+            <input type="text" id="quantity" name="quantity" required />
 
             <label for="Amount">Amount:</label>
-            <input type="text" id="Amount" name="Amount" />
+            <input type="text" id="Amount" name="Amount" required />
 
             <input type="submit" name="submit" value="Submit" />
         </div>
